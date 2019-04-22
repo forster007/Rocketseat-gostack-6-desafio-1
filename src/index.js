@@ -29,12 +29,12 @@ app.post('/check', (req, res) => {
   return res.redirect(`/${age > 18 ? 'major' : 'minor'}?age=${age}`)
 })
 
-app.get('/minor', checkMiddleware, (req, res) => {
-  return res.render('minor', { age: req.query.age })
-})
+app.get('/minor', checkMiddleware, (req, res) =>
+  res.render('minor', { age: req.query.age })
+)
 
-app.get('/major', checkMiddleware, (req, res) => {
-  return res.render('major', { age: req.query.age })
-})
+app.get('/major', checkMiddleware, (req, res) =>
+  res.render('major', { age: req.query.age })
+)
 
 app.listen(3000)
